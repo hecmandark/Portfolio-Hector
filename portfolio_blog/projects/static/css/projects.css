@@ -1,0 +1,38 @@
+/* Hero Section */
+header {
+    color: var(--text-color);
+}
+
+.img_hero {
+    background: var(--primary-color);
+}
+
+.bi {
+    font-size: 1.5rem;
+}
+
+.button_linkedin {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.button_linkedin:hover {
+    background-color: var(--accent-color);
+    color: black;
+
+
+
+}
+
+.card {
+    background-color: var(--primary-color) !important;
+    color: var(--text-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid var(--primary-color);
+    cursor: pointer;
+}

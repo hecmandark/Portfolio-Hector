@@ -1,0 +1,35 @@
+{% extends "layout/base.html" %}
+{% load static %}
+{% block style %}<link rel="stylesheet" href="{% static 'css/blog.css' %}">{% endblock %}
+{% block title %}Blog{% endblock %}
+
+{% block post_detail %}
+<article class="container my-5 text-white">
+  <!-- Image Article -->
+  <div class="row">
+    <div class="col-12">
+      <img
+        src="{{ post.image.url }}"
+        class="img-fluid rounded w-50 d-block mx-auto"
+        alt="{{ post.title }}"
+      />
+    </div>
+  </div>
+
+  <!-- Title and Details -->
+  <div class="my-4">
+    <h1 class="fw-bold text-center">{{ post.title }}</h1>
+    <p class="text-muted text-center">Publicado el {{ post.published}}</p>
+  </div>
+
+  <!-- Content -->
+  <section class="my-4">
+    <p class="fs-5">{{ post.content|linebreaks|safe }}</p>
+  </section>
+
+  <!-- Button Home -->
+  <div class="text-center mt-5">
+    <a href="{% url 'blog' %}" class="btn">Return to Blog</a>
+  </div>
+</article>
+{% endblock %}

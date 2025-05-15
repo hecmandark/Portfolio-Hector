@@ -1,0 +1,61 @@
+{% extends "layout/base.html" %}
+{% load static %}
+{% block title %}Home{% endblock  %}
+{% block style %}<link rel="stylesheet" href="{% static 'css/projects.css' %}">{% endblock style %}
+{% block index %}
+
+
+<!-- Hero Section -->
+<header class="container">
+  <div class="row align-items-center justify-content-between p-1 mt-3 m-auto">
+    <div class="col-4 col-lg-2 m-auto">
+      <img
+        src="{% static 'images/hero.png' %}"
+        class="rounded-circle img-fluid img_hero"
+        alt="Profile Image"
+      />
+    </div>
+
+    <div class="col-md-8 text-md-start text-center ps-md-2 pe-md-5">
+      <h1><strong>Hector Milone</strong></h1>
+      <h3>Jr Developer</h3>
+      <p>
+        Web portfolio developed with Django and Bootstrap 5.
+      </p>
+          <a href="https://www.linkedin.com/in/hector-milone-682303248/" target="_blank" class="btn text-decoration-none d-inline-flex align-items-center button_linkedin">
+          <span class="fw-bold fs-4 me-1 bg text-decoration-none">LinkedIn </span>
+          <i class="bi bi-linkedin""></i>
+          </a>
+    </div>
+  </div>
+</header>
+<!-- End Hero Section -->
+
+  <div class="col-12 text-center mt-5 mb-3">
+    <h2 class="text-white">Projects</h2>
+    <p class="text-white">Here are some of my projects.</p>
+  </div>
+
+<div class="container row row-cols-1 row-cols-md-4 m-auto g-4 ">
+
+  {% for project in projects %}
+  <div class="col">
+    <div class="card bg-secondary text-white h-100">
+      <div class="">
+        <img
+          src="{{project.image.url}}"
+          class="card-img-top img_card"
+          alt="Project Image"
+        />
+      </div>
+      <div class="card-body">
+        <a class="text-decoration-none text-white" href="{{project.url}}">
+          <h5 class="card-title">{{project.title}}</h5>
+          <p class="card-text">{{project.description|striptags|truncatechars:50}}</p>
+        </a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

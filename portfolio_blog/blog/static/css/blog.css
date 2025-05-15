@@ -1,0 +1,29 @@
+.blog_container {
+    background-image: url('../images/bg_blog.jpg');
+    background-size: cover;
+    background-position: top;
+    aspect-ratio: 4/3;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+
+}
+
+.navbar {
+    background-color: var(--primary-color);
+    transition: 3ms;
+}
+
+.btn{
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    transform: scale(1.05);
+}

@@ -1,0 +1,36 @@
+{% extends "layout/base.html" %}
+{% load static %}
+{% block style %}<link rel="stylesheet" href="{% static 'css/blog.css' %}">{% endblock %}
+{% block title %}Blog{% endblock %}
+{% block blog %}
+
+  <div class="container my-2 mx-auto text-white">
+    <div class="row p-3 mb-4 align-items-center justify-content-center">
+      <div class="container col-md-4 blog_container">
+      </div>
+      <div class="container-fluid col-md-8 py-5 text-center">
+        <h2 class="display-5 fs-3 fw-bold">Welcome to My Blog</h2>
+        <p class="lead">Here you will find articles and tutorials on various topics related to web development, programming, and technology.</p>
+      </div>
+    </div>
+  </div>
+
+<div class="container mx-auto row row-cols-1 row-cols-md-3 g-4 align-items-center mt-4">
+  {% for post in posts %}
+  <a href="{% url 'post_details' slug=post.slug %}">
+
+    <div class="col">
+      <div class="card">
+        <img src="{{post.image.url}}" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">{{post.content|striptags|truncatechars:100}}</p>
+        </div>
+      </div>
+    </div>
+  </a>
+  {% endfor %}
+</div>
+
+
+{% endblock %}
